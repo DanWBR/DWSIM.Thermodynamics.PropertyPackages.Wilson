@@ -54,11 +54,11 @@
         Dim i As Integer = 0
 
         For Each subst In Me.CurrentMaterialStream.Phases(0).Compounds.Values
-            MolarVolumes(i) = AUX_LIQDENSi(i, 298.15) / subst.ConstantProperties.Molar_Weight
+            MolarVolumes(i) = subst.ConstantProperties.Molar_Weight / AUX_LIQDENSi(i, 298.15)
             i += 1
         Next
 
-        Return New Object() {CASIDs, MolarVolumes} 'kmol/m3
+        Return New Object() {CASIDs, MolarVolumes} 'm3/kmol
 
     End Function
 

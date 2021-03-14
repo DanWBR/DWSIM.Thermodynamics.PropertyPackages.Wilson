@@ -91,7 +91,7 @@ Public Class WilsonModel
 
         For i = 0 To n
             For j = 0 To n
-                BIP = GetBIPs(CASIDs(j), CASIDs(i))
+                BIP = GetBIPs(CASIDs(i), CASIDs(j))
                 Lambda_ij(i, j) = MolarVolumes(j) / MolarVolumes(i) * Math.Exp(-BIP / (1.9872 * T))
             Next
         Next
