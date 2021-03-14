@@ -50,10 +50,12 @@ Public Class WilsonModel
 
         If BIPs.ContainsKey(cas1) Then
             If BIPs(cas1).ContainsKey(cas2) Then
+                'return A12
                 Return BIPs(cas1)(cas2)(0)
             Else
                 If BIPs.ContainsKey(cas2) Then
                     If BIPs(cas2).ContainsKey(cas1) Then
+                        'return A21
                         Return BIPs(cas2)(cas1)(1)
                     Else
                         Return 0.0
@@ -64,6 +66,7 @@ Public Class WilsonModel
             End If
         ElseIf BIPs.ContainsKey(cas2) Then
             If BIPs(cas2).ContainsKey(cas1) Then
+                'return A21
                 Return BIPs(cas2)(cas1)(1)
             Else
                 Return 0.0
@@ -92,6 +95,7 @@ Public Class WilsonModel
         For i = 0 To n
             For j = 0 To n
                 BIP = GetBIPs(CASIDs(i), CASIDs(j))
+                'BIP (A12 or A21) is in cal/mol
                 Lambda_ij(i, j) = MolarVolumes(j) / MolarVolumes(i) * Math.Exp(-BIP / (1.9872 * T))
             Next
         Next
